@@ -1,6 +1,6 @@
 {
   "name": "niu-interface",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Network interface for niu e-bike",
   "main": "index.ts",
   "scripts": {},
