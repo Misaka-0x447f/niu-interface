@@ -4,7 +4,7 @@ import FormData from 'form-data';
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-let token;
+export let token;
 let username;
 let password;
 
@@ -24,10 +24,14 @@ const tokenClient = got.extend({
 export const updateLoginInfo = (p: {username: string; password: string}) => {
   username = p.username;
   password = p.password;
-  updateToken().then();
+  return updateToken();
 };
 
-export const updateToken = () => {
+export const updateToken = (newToken?: string) => {
+  if (newToken) {
+    token = newToken;
+    return;
+  }
   if (!username) {
     return;
   }
